@@ -60,10 +60,12 @@ public class ActivityLogcatGrabber extends Activity {
 
 		Intent intent = new Intent(Intent.ACTION_SEND_MULTIPLE);
 
-		intent.putExtra(Intent.EXTRA_EMAIL, new String[] { "spurious.thought@gmail.com"});
 		intent.putExtra(Intent.EXTRA_EMAIL, new String[] { "support@example.com"});
 		intent.putExtra(Intent.EXTRA_SUBJECT, "Example.com Support");
-		intent.putExtra(Intent.EXTRA_TEXT, "Enter message here...");
+
+        ArrayList<String> extra_text = new ArrayList<String>();
+        extra_text.add("Enter message here...");
+        intent.putStringArrayListExtra(Intent.EXTRA_TEXT, extra_text);
 
 		// Output statistics about the device
 		Log.d("529", "Android version: "+ Build.VERSION.RELEASE);
